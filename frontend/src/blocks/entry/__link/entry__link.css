@@ -1,0 +1,10 @@
+.entry__link {
+	color: white;
+	text-decoration: none;
+	transition: opacity 0.2s linear;
+}
+
+.entry__link:hover {
+	opacity: 0.6;
+	cursor: pointer;
+}

@@ -1,0 +1,9 @@
+.body {
+	background-color: #000;
+}
+
+@media screen and (max-width: 1280px) {
+	.body {
+		display: block;
+	}
+}

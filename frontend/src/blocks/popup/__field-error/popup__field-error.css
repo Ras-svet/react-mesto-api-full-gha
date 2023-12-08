@@ -1,0 +1,22 @@
+.popup__field-error {
+	margin: 0;
+	padding: 0;
+	margin-top: 5px;
+	display: flex;
+	color: #FF0000;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 15px;
+	max-width: 358px;
+	min-height: 33px;
+}
+
+.popup__field-error:last-of-type {
+	margin-bottom: 18px;
+}
+
+@media screen and (max-width: 550px) {
+	.popup__field-error:last-of-type {
+		margin-bottom: 11px;
+	}
+}
