@@ -11,36 +11,44 @@ export class Api {
 		return Promise.reject(`Ошибка: ${response.status}`)
 	}
 
+	_getAuth() {
+    const jwt = localStorage.getItem('jwt');
+    return {
+      'Authorization': `Bearer ${jwt}`,
+      ...this._headers,
+    };
+  }
+
 	getUserInfo() {
 		return fetch(`${this._url}/users/me`, {
-			headers: this._headers
+			headers: this._getAuth()
 		}).then(this._checkResponse)
 	}
 
 	getCards() {
 		return fetch(`${this._url}/cards`, {
-			headers: this._headers
+			headers: this._getAuth()
 		}).then(this._checkResponse)
 	}
 
 	addLike(cardId) {
 		return fetch(`${this._url}/cards/${cardId}/likes`, {
 			method: "PUT",
-			headers: this._headers
+			headers: this._getAuth()
 		}).then(this._checkResponse)
 	}
 
 	removeLike(cardId) {
 		return fetch(`${this._url}/cards/${cardId}/likes`, {
 			method: "DELETE",
-			headers: this._headers
+			headers: this._getAuth()
 		}).then(this._checkResponse)
 	}
 
 	addCard({name, link}) {
 		return fetch(`${this._url}/cards`, {
 			method: "POST",
-			headers: this._headers,
+			headers: this._getAuth(),
 			body: JSON.stringify({
 				name: name,
 				link: link
@@ -51,14 +59,14 @@ export class Api {
 	deleteCard(cardId) {
 		return fetch(`${this._url}/cards/${cardId}`, {
 			method: "DELETE",
-			headers: this._headers
+			headers: this._getAuth()
 		}).then(this._checkResponse)
 	}
 
 	changeAvatar(body) {
 		return fetch(`${this._url}/users/me/avatar`, {
 			method: "PATCH",
-			headers: this._headers,
+			headers: this._getAuth(),
 			body: JSON.stringify(body)
 		}).then(this._checkResponse)
 	}
@@ -66,7 +74,7 @@ export class Api {
 	changeUserInfo(body) {
 		return fetch(`${this._url}/users/me`, {
 			method: "PATCH",
-			headers: this._headers,
+			headers: this._getAuth(),
 			body: JSON.stringify(body)
 		}).then(this._checkResponse)
 	}
