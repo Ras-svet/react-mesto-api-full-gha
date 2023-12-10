@@ -23,7 +23,7 @@ function Main(props) {
 				<button type="button" onClick={props.onAddPlace} className="profile__add-button" aria-label="кнопка добавления контента"></button>
 			</section>
 			<section className="elements">
-				{props.cards.map(card => {
+				{props.cards?.map(card => {
 					return (
 						<Card
 							card={card}
