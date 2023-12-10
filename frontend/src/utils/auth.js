@@ -42,7 +42,7 @@ export class Auth {
 }
 
 const auth = new Auth({
-	url: 'https://auth.nomoreparties.co',
+	url: 'https://api.rassvet.nomoredomainsmonster.ru',
 })
 
 export default auth;

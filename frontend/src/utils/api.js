@@ -73,9 +73,8 @@ export class Api {
 }
 
 const api = new Api({
-	url: 'https://mesto.nomoreparties.co/v1/cohort-74',
+	url: 'https://api.rassvet.nomoredomainsmonster.ru',
 	headers: {
-		authorization: 'c55a96e6-da21-4263-9b88-67e69c11521a',
 		'Content-Type': 'application/json'
 	}
 }

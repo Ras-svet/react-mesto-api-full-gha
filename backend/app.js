@@ -27,7 +27,7 @@ mongoose.connect(DB_URL)
   .catch((err) => { console.log(`Erorr ${err.name} ${err.message}`); });
 
 app.use(requestLogger);
-app.use(cors({ credentials: true, origin: true }));
+app.use(cors());
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
